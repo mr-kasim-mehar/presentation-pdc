@@ -270,8 +270,8 @@ export default function Home() {
         <div ref={(el) => { slideRefs.current[0] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full text-center space-y-8">
             <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 mb-8 px-4 whitespace-nowrap">
-                Parallel & Distributed Computing
-              </h1>
+              Parallel & Distributed Computing
+            </h1>
             <GlassCard>
               <p className="text-xl md:text-2xl text-green-200 font-medium mb-6">
                 What is CUDA and How to Write Code?
@@ -537,9 +537,7 @@ export default function Home() {
               <div className="content-box">
                 <h3 className="text-2xl font-bold text-white mb-4">Summary</h3>
                 <p className="text-gray-300 mb-6">CUDA unlocks the massive power of GPUs for everyday tasks.</p>
-                <div className="h-px w-32 bg-white/20 mx-auto my-6" />
-                <h3 className="text-2xl font-bold text-white mb-4">Q&A</h3>
-                <p className="text-gray-300 mb-6">We are now open for any questions.</p>
+
                 <div className="text-gray-400 italic space-y-1">
                   <p>Contact:</p>
                   <p>Danish Ali, Abdullah Azam</p>
