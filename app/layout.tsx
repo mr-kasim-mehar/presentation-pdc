@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BugChase - Presentation",
+  title: "PDC - Presentation",
   description: "A Secure Bridge Between Organizations and Ethical Hackers",
 };
 

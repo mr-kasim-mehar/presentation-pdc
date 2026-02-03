@@ -51,21 +51,18 @@ const LightRays = dynamic(() => import("@/components/LightRays"), {
 
 // Updated Slide Data with Short Titles for Navbar
 const slides = [
-  { id: 0, title: "Identity", name: "Project Title & Team Identity" },
-  { id: 1, title: "Milestones", name: "Milestone Implementation Overview" },
-  { id: 2, title: "Auth", name: "Secure Authentication & Access Control" },
-  { id: 3, title: "KYC", name: "Advanced Identity Verification (KYC)" },
-  { id: 4, title: "Workspace", name: "Researcher Workspace & Identity" },
-  { id: 5, title: "Tools", name: "Researcher Technical Tools" },
-  { id: 6, title: "Reporting", name: "Vulnerability Reporting Engine" },
-  { id: 7, title: "Chat", name: "Unified Communication Engine (Chat)" },
-  { id: 8, title: "Triage", name: "Triage & Validation Workflow" },
-  { id: 9, title: "Governance", name: "Administrative Governance & Messaging" },
-  { id: 10, title: "Programs", name: "Company Program & Scoping" },
-  { id: 11, title: "Backend", name: "Technical Architecture (Backend)" },
-  { id: 12, title: "Frontend", name: "Technical Architecture (Frontend)" },
-  { id: 13, title: "Demo", name: "Use Case Demo: Verified Reporting" },
-  { id: 14, title: "Future", name: "Conclusion & Milestone Roadmap" },
+  { id: 0, title: "Title", name: "Introduction to Parallel Computing" },
+  { id: 1, title: "Basics", name: "What is CUDA?" },
+  { id: 2, title: "CPU/GPU", name: "Why Parallelism Matters" },
+  { id: 3, title: "Grid", name: "Threads, Blocks, and Grids" },
+  { id: 4, title: "Memory", name: "Host vs. Device" },
+  { id: 5, title: "Steps", name: "The CUDA Workflow" },
+  { id: 6, title: "Kernel", name: "Defining the Kernel" },
+  { id: 7, title: "Alloc", name: "Allocating Memory" },
+  { id: 8, title: "Copy", name: "Moving the Data" },
+  { id: 9, title: "Launch", name: "Launching the Kernel" },
+  { id: 10, title: "Code", name: "Full Code Implementation" },
+  { id: 11, title: "End", name: "Thank You!" },
 ];
 
 export default function Home() {
@@ -267,485 +264,314 @@ export default function Home() {
         style={{ scrollBehavior: 'smooth', zIndex: 10 }}
       >
 
-        {/* Slide 1: Project Title & Team */}
-        <div ref={(el) => { slideRefs.current[0] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
-          <div className="max-w-4xl w-full text-center space-y-8">
-            <GlassCard>
-              <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
-                BugChase
-              </h1>
-              <p className="text-xl md:text-2xl text-blue-200 font-medium mb-6">
-                Pakistan’s Specialized Bug Bounty Ecosystem
-              </p>
-              <div className="h-px w-32 bg-white/20 mx-auto my-6" />
-              <p className="text-lg text-gray-300 italic">
-                GIFT University, Gujranwala
-              </p>
-            </GlassCard>
 
-            <GlassCard className="text-left">
-              <h3 className="text-xl font-bold text-white mb-4 border-b border-white/10 pb-2">Team Members</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500" />
-                  <span className="text-gray-200">Muhammad Qasim</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500" />
-                  <span className="text-gray-200">Shahzaib Ahmad</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500" />
-                  <span className="text-gray-200">Shahzab</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500" />
-                  <span className="text-gray-200">Tauseef Ahmad</span>
-                </div>
+
+        {/* Slide 1: Title Slide */}
+        <div ref={(el) => { slideRefs.current[0] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
+          <div className="max-w-5xl w-full text-center space-y-8">
+            <GlassCard>
+              <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 mb-4 px-4 whitespace-nowrap">
+                Parallel & Distributed Computing
+              </h1>
+              <p className="text-xl md:text-2xl text-green-200 font-medium mb-6">
+                What is CUDA and How to Write Code?
+              </p>
+              <div className="text-lg text-gray-300 mt-4 space-x-4">
+                <span className="inline-block">Danish Ali</span>
+                <span className="inline-block">Abdullah Azam</span>
+                <span className="inline-block">Ameer Hamza Bajwa</span>
+                <span className="inline-block">Muhammad Qasim</span>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/10">
-                <p className="text-gray-300">
-                  <span className="font-semibold text-white">Supervision:</span> Madam Sumbal Fatima
-                </p>
-              </div>
+              <p className="text-gray-400 mt-2 italic">Gift University, Gujranwala</p>
             </GlassCard>
           </div>
         </div>
 
-        {/* Slide 2: Milestone Implementation Overview */}
+        {/* Slide 2: What is CUDA? */}
         <div ref={(el) => { slideRefs.current[1] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center drop-shadow-lg">Milestone Implementation Overview</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The Architecture of CUDA</h1>
             <GlassCard className="space-y-6">
               <div className="content-box">
-                <h3 className="text-2xl font-bold text-blue-400 mb-2">Current Phase</h3>
-                <p className="text-gray-300 text-lg">40% functional implementation of the project’s total requirements.</p>
+                <h3 className="text-xl font-bold text-green-400 mb-2">Beyond the Definition</h3>
+                <p className="text-gray-300">It is a parallel computing platform and programming model.</p>
               </div>
               <div className="content-box">
-                <h3 className="text-xl font-semibold text-white mb-2">Core Objective</h3>
-                <p className="text-gray-300">Establishing the essential "Researcher-to-Company" lifecycle with high-security standards.</p>
+                <h3 className="text-xl font-bold text-white mb-2">The Programming Interface</h3>
+                <p className="text-gray-300">It provides a set of extensions to the C language (and C++, Fortran, Python) to allow "General Purpose GPU" computing (GPGPU).</p>
               </div>
               <div className="content-box">
-                <h3 className="text-xl font-semibold text-white mb-2">Key Achievements</h3>
-                <p className="text-gray-300">Successful deployment of identity verification (KYC), tripartite chat, and the technical submission engine.</p>
+                <h3 className="text-xl font-bold text-white mb-2">The Ecosystem</h3>
+                <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  <li><strong className="text-blue-400">NVCC Compiler:</strong> The heart of CUDA that separates CPU code from GPU code.</li>
+                  <li><strong className="text-blue-400">Libraries:</strong> Includes pre-built math libraries like cuBLAS (Linear Algebra) and cuFFT (Fast Fourier Transform).</li>
+                </ul>
               </div>
               <div className="content-box">
-                <h3 className="text-xl font-semibold text-white mb-2">Functional Modules</h3>
-                <p className="text-gray-400 text-sm">Authentication, Identity Management, Reporting Engine, Communication Thread, and Administrative Tools.</p>
+                <h3 className="text-xl font-bold text-white mb-2">Hardware Requirement</h3>
+                <p className="text-gray-300">Requires an NVIDIA GPU with "Compute Capability."</p>
               </div>
             </GlassCard>
           </div>
         </div>
 
-        {/* Slide 3: Secure Authentication & Access Control */}
+        {/* Slide 3: CPU vs. GPU */}
         <div ref={(el) => { slideRefs.current[2] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Secure Authentication & Access Control</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <GlassCard className="content-box">
-                <div className="h-12 w-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-4">
-                  <UserPlus className="w-6 h-6 text-blue-400" />
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Throughput vs. Latency</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <GlassCard className="content-box h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <Cpu className="w-8 h-8 text-blue-400" />
+                  <h3 className="text-2xl font-bold text-white">CPU (Latency Oriented)</h3>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Multi-Actor Portal</h3>
-                <p className="text-gray-400">Specialized, role-based login and registration flows for Researchers, Companies, and Administrators.</p>
+                <p className="text-gray-300 text-lg mb-4">Designed to minimize the time it takes to execute a single instruction.</p>
+                <div className="space-y-2">
+                  <p className="text-gray-400">It uses massive L3 Caches and complex Branch Prediction.</p>
+                  <p className="text-gray-300 mt-2"><strong className="text-white">Parallelism:</strong> SISD/MIMD (Single/Multiple Instruction, Single/Multiple Data)</p>
+                </div>
               </GlassCard>
-
-              <GlassCard className="content-box">
-                <div className="h-12 w-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
-                  <MailCheck className="w-6 h-6 text-purple-400" />
+              <GlassCard className="content-box h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <Layers className="w-8 h-8 text-green-400" />
+                  <h3 className="text-2xl font-bold text-white">GPU (Throughput Oriented)</h3>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Identity Protection</h3>
-                <p className="text-gray-400">Mandatory email-based OTP (One-Time Password) for account activation and credential recovery.</p>
-              </GlassCard>
-
-              <GlassCard className="content-box">
-                <div className="h-12 w-12 rounded-lg bg-green-500/20 flex items-center justify-center mb-4">
-                  <ShieldCheck className="w-6 h-6 text-green-400" />
+                <p className="text-gray-300 text-lg mb-4">Designed to maximize the amount of data processed at once.</p>
+                <div className="space-y-2">
+                  <p className="text-gray-400">It sacrifices large caches to make room for thousands of ALUs (Arithmetic Logic Units).</p>
+                  <p className="text-gray-300 mt-2"><strong className="text-white">Parallelism:</strong> SIMT (Single Instruction, Multiple Threads)</p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Session Management</h3>
-                <p className="text-gray-400">Utilization of JSON Web Tokens (JWT) for secure, stateless session handling and API protection.</p>
               </GlassCard>
             </div>
           </div>
         </div>
 
-        {/* Slide 4: Advanced Identity Verification (KYC) */}
+        {/* Slide 4: Understanding the Hierarchy */}
         <div ref={(el) => { slideRefs.current[3] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Advanced Identity Verification (KYC)</h1>
-            <GlassCard className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="content-box border-l-4 border-blue-500 pl-4 py-2 bg-white/5 rounded-r-lg flex items-start gap-3">
-                  <CreditCard className="w-8 h-8 text-blue-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-bold text-white">NIC Validation</h3>
-                    <p className="text-gray-300">Secure integration for capturing and verifying National Identity Card (NIC) data to ensure platform accountability.</p>
-                  </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The Execution Hierarchy</h1>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <GlassCard className="content-box text-center">
+                <div className="w-16 h-16 mx-auto bg-orange-500/20 rounded-full flex items-center justify-center mb-4">
+                  <LayoutDashboard className="w-8 h-8 text-orange-400" />
                 </div>
-                <div className="content-box border-l-4 border-indigo-500 pl-4 py-2 bg-white/5 rounded-r-lg flex items-start gap-3">
-                  <ScanFace className="w-8 h-8 text-indigo-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-bold text-white">Liveliness Detection</h3>
-                    <p className="text-gray-300">Deployment of the Facenet512 model to perform real-time biometric face matching during onboarding.</p>
-                  </div>
+                <h3 className="text-xl font-bold text-white mb-2">The Grid</h3>
+                <p className="text-gray-300 text-sm">The top-level structure. A grid is launched whenever you call a kernel.</p>
+              </GlassCard>
+              <GlassCard className="content-box text-center">
+                <div className="w-16 h-16 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center mb-4">
+                  <Layers className="w-8 h-8 text-purple-400" />
                 </div>
-                <div className="content-box border-l-4 border-cyan-500 pl-4 py-2 bg-white/5 rounded-r-lg flex items-start gap-3">
-                  <ShieldAlert className="w-8 h-8 text-cyan-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-bold text-white">Fraud Prevention</h3>
-                    <p className="text-gray-300">Advanced algorithms to distinguish between live presence and digital spoofs (photos, videos, or masks).</p>
-                  </div>
+                <h3 className="text-xl font-bold text-white mb-2">The Block</h3>
+                <p className="text-gray-300 text-sm">A group of threads that can share data through Shared Memory and synchronize execution.</p>
+              </GlassCard>
+              <GlassCard className="content-box text-center">
+                <div className="w-16 h-16 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
+                  <Zap className="w-8 h-8 text-blue-400" />
                 </div>
-                <div className="content-box border-l-4 border-teal-500 pl-4 py-2 bg-white/5 rounded-r-lg flex items-start gap-3">
-                  <BadgeCheck className="w-8 h-8 text-teal-400 mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-bold text-white">Trust Mechanism</h3>
-                    <p className="text-gray-300">Automated "Verified" badge assignment upon successful completion of biometric and NIC checks.</p>
-                  </div>
-                </div>
-              </div>
+                <h3 className="text-xl font-bold text-white mb-2">The Thread</h3>
+                <p className="text-gray-300 text-sm">The smallest unit. Has built-in variables: <code className="bg-white/10 px-1 rounded text-xs">threadIdx</code>, <code className="bg-white/10 px-1 rounded text-xs">blockIdx</code>, <code className="bg-white/10 px-1 rounded text-xs">blockDim</code>.</p>
+              </GlassCard>
+            </div>
+            <GlassCard className="mt-6 text-center">
+              <h3 className="text-xl font-bold text-white mb-2">The Math behind Indexing</h3>
+              <p className="text-gray-300 mb-2">To find a global index in a 1D array:</p>
+              <code className="bg-black/30 px-4 py-2 rounded-lg text-green-400 text-lg block w-fit mx-auto">
+                GlobalIndex = (blockIdx.x × blockDim.x) + threadIdx.x
+              </code>
             </GlassCard>
           </div>
         </div>
 
-        {/* Slide 5: Researcher Workspace & Identity */}
+        {/* Slide 5: Memory Management */}
         <div ref={(el) => { slideRefs.current[4] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Researcher Workspace & Identity</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Memory Spaces and the PCIe Bus</h1>
             <GlassCard className="space-y-6">
-              <div className="content-box flex items-center gap-4">
-                <div className="p-3 bg-white/5 rounded-lg">
-                  <ListChecks className="w-8 h-8 text-blue-400" />
+              <div className="content-box bg-red-500/10 p-4 rounded-xl text-center border border-red-500/30">
+                <h3 className="text-xl font-bold text-red-400 mb-1">Data Bottleneck</h3>
+                <p className="text-gray-300 text-sm">Data travels from the CPU to the GPU via the PCIe Bus. This is often the slowest part of the program.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="content-box bg-white/5 p-4 rounded-xl text-center">
+                  <h3 className="text-lg font-bold text-blue-400 mb-2">Global Memory</h3>
+                  <p className="text-gray-300 text-sm">Accessible by all threads but slow (High latency).</p>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1">Skill Inventory</h3>
-                  <p className="text-gray-300">Capability for researchers to manage and display technical specialties like Web, Mobile, or Network security.</p>
+                <div className="content-box bg-white/5 p-4 rounded-xl text-center">
+                  <h3 className="text-lg font-bold text-purple-400 mb-2">Shared Memory</h3>
+                  <p className="text-gray-300 text-sm">Very fast, but only accessible by threads within the same block.</p>
+                </div>
+                <div className="content-box bg-white/5 p-4 rounded-xl text-center">
+                  <h3 className="text-lg font-bold text-green-400 mb-2">Registers</h3>
+                  <p className="text-gray-300 text-sm">The fastest memory, private to each individual thread.</p>
                 </div>
               </div>
-              <div className="content-box flex items-center gap-4">
-                <div className="p-3 bg-white/5 rounded-lg">
-                  <Briefcase className="w-8 h-8 text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1">Portfolio Generation</h3>
-                  <p className="text-gray-300">Automated, professional public pages that showcase a researcher's verified achievements and hall-of-fame entries.</p>
-                </div>
-              </div>
-              <div className="content-box flex items-center gap-4">
-                <div className="p-3 bg-white/5 rounded-lg">
-                  <Link className="w-8 h-8 text-emerald-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1">Professional Sync</h3>
-                  <p className="text-gray-300">Integration with external platforms like GitHub and LinkedIn to build a holistic researcher persona.</p>
-                </div>
+
+              <div className="content-box bg-white/5 p-4 rounded-xl text-center border border-yellow-500/30">
+                <h3 className="text-lg font-bold text-yellow-400 mb-1">Standard Rule</h3>
+                <p className="text-gray-300 text-sm">Keep data on the Device as long as possible to avoid constant transfers back to the Host.</p>
               </div>
             </GlassCard>
           </div>
         </div>
 
-        {/* Slide 6: Researcher Technical Tools */}
+        {/* Slide 6: The CUDA Workflow */}
         <div ref={(el) => { slideRefs.current[5] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Researcher Technical Tools</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <GlassCard className="content-box flex flex-col h-full text-center items-center">
-                <LayoutDashboard className="w-12 h-12 text-blue-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Real-time Status Dashboard</h3>
-                <p className="text-gray-300 flex-grow">A centralized tracking system for researchers to monitor their reports' progress from "Pending" to "Triaged."</p>
-              </GlassCard>
-              <GlassCard className="content-box flex flex-col h-full text-center items-center">
-                <Calculator className="w-12 h-12 text-indigo-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Built-in CVSS v3.1 Calculator</h3>
-                <p className="text-gray-300 flex-grow">A native tool on the researcher side to calculate the severity of a bug before submission.</p>
-              </GlassCard>
-              <GlassCard className="content-box flex flex-col h-full text-center items-center">
-                <BarChart3 className="w-12 h-12 text-red-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Severity Metrics</h3>
-                <p className="text-gray-300 flex-grow">Researchers select impact parameters (e.g., Attack Vector, Impact to Confidentiality) to generate a standardized score.</p>
-              </GlassCard>
-            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Anatomy of a CUDA Execution</h1>
+            <GlassCard className="space-y-4">
+              <div className="space-y-4">
+                {[
+                  { title: "Host Initialization", desc: "Define array sizes and fill arrays h_a and h_b with values in the CPU RAM." },
+                  { title: "Device Allocation", desc: "Use cudaMalloc() to reserve space in the GPU's VRAM." },
+                  { title: "H2D Transfer", desc: "Use cudaMemcpy(..., cudaMemcpyHostToDevice) to push data across the PCIe bus." },
+                  { title: "The Kernel Launch", desc: "The CPU tells the GPU to wake up N threads. The CPU can either wait (Synchronous) or keep working (Asynchronous)." },
+                  { title: "D2H Transfer & Cleanup", desc: "Use cudaMemcpy(..., cudaMemcpyDeviceToHost) to bring the answer home and cudaFree() to clear the GPU memory." }
+                ].map((item, idx) => (
+                  <div key={idx} className="content-box flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                    <div className="w-8 h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-lg flex-shrink-0 mt-1">
+                      {idx + 1}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-1">{item.title}</h4>
+                      <p className="text-gray-300 text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </GlassCard>
           </div>
         </div>
 
-        {/* Slide 7: Vulnerability Reporting Engine */}
+        {/* Slide 7: Defining the Kernel */}
         <div ref={(el) => { slideRefs.current[6] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Vulnerability Reporting Engine</h1>
-            <GlassCard className="space-y-6">
-              <div className="content-box bg-white/5 p-6 rounded-xl flex items-start gap-4">
-                <div className="p-2 bg-blue-500/20 rounded-lg">
-                  <FileEdit className="w-8 h-8 text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Standardized Intake</h3>
-                  <p className="text-gray-300">A rigorous form designed to capture vulnerability Title, Category, and detailed technical descriptions.</p>
-                </div>
-              </div>
-              <div className="content-box bg-white/5 p-6 rounded-xl flex items-start gap-4">
-                <div className="p-2 bg-purple-500/20 rounded-lg">
-                  <ImagePlus className="w-8 h-8 text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Technical Evidence Support</h3>
-                  <p className="text-gray-300">Full functionality for uploading various file types, specifically focusing on Proof of Concept (POC) videos and screenshots.</p>
-                </div>
-              </div>
-              <div className="content-box bg-white/5 p-6 rounded-xl flex items-start gap-4">
-                <div className="p-2 bg-green-500/20 rounded-lg">
-                  <Tag className="w-8 h-8 text-green-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">CWE Integration</h3>
-                  <p className="text-gray-300">Standardized bug tagging using the Common Weakness Enumeration (CWE) database for technical consistency.</p>
-                </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The GPU Function (__global__)</h1>
+            <GlassCard>
+              <p className="text-lg text-gray-300 mb-6 font-medium">We use the keyword <code className="text-green-400">__global__</code> to tell the compiler this function runs on the GPU.</p>
+              <div className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 overflow-x-auto">
+                <code className="text-sm md:text-base font-mono text-gray-300">
+                  <span className="text-green-400">__global__</span> <span className="text-blue-400">void</span> <span className="text-yellow-300">addArrays</span>(<span className="text-blue-400">int</span> *a, <span className="text-blue-400">int</span> *b, <span className="text-blue-400">int</span> *c, <span className="text-blue-400">int</span> n) {"{"}<br />
+                  &nbsp;&nbsp;<span className="text-gray-500">// Find the unique index for this thread</span><br />
+                  &nbsp;&nbsp;<span className="text-blue-400">int</span> i = blockIdx.x * blockDim.x + threadIdx.x;<br />
+                  <br />
+                  &nbsp;&nbsp;<span className="text-purple-400">if</span> (i &lt; n) {"{"}<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;c[i] = a[i] + b[i]; <span className="text-gray-500">// Addition happens here!</span><br />
+                  &nbsp;&nbsp;{"}"}<br />
+                  {"}"}
+                </code>
               </div>
             </GlassCard>
           </div>
         </div>
 
-        {/* Slide 8: Unified Communication Engine (Chat) */}
+        {/* Slide 8: Allocating Memory */}
         <div ref={(el) => { slideRefs.current[7] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Unified Communication Engine (Chat)</h1>
-            <div className="space-y-4">
-              <GlassCard className="content-box flex items-center space-x-4">
-                <div className="p-3 bg-blue-500/20 rounded-full">
-                  <MessageSquare className="w-8 h-8 text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Tripartite Thread</h3>
-                  <p className="text-gray-300">A real-time chat interface integrated directly into every individual bug report.</p>
-                </div>
-              </GlassCard>
-              <GlassCard className="content-box flex items-center space-x-4">
-                <div className="p-3 bg-indigo-500/20 rounded-full">
-                  <Send className="w-8 h-8 text-indigo-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Researcher-Triager Interaction</h3>
-                  <p className="text-gray-300">Direct channel for triagers to request further evidence or for researchers to clarify technical exploit steps.</p>
-                </div>
-              </GlassCard>
-              <GlassCard className="content-box flex items-center space-x-4">
-                <div className="p-3 bg-teal-500/20 rounded-full">
-                  <Building2 className="w-8 h-8 text-teal-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Company Engagement</h3>
-                  <p className="text-gray-300">Organizations can join the existing thread to discuss remediation steps or assess the business impact of a finding.</p>
-                </div>
-              </GlassCard>
-            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Step 1: cudaMalloc</h1>
+            <GlassCard>
+              <p className="text-lg text-gray-300 mb-6 font-medium">Just like <code className="text-orange-400">malloc()</code> in standard C, we use <code className="text-green-400">cudaMalloc</code> for the GPU.</p>
+              <div className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 overflow-x-auto">
+                <code className="text-sm md:text-base font-mono text-gray-300">
+                  <span className="text-blue-400">int</span> *d_a, *d_b, *d_c; <span className="text-gray-500">// 'd' stands for Device</span><br />
+                  <span className="text-blue-400">int</span> size = n * <span className="text-purple-400">sizeof</span>(<span className="text-blue-400">int</span>);<br />
+                  <br />
+                  <span className="text-yellow-300">cudaMalloc</span>(&d_a, size);<br />
+                  <span className="text-yellow-300">cudaMalloc</span>(&d_b, size);<br />
+                  <span className="text-yellow-300">cudaMalloc</span>(&d_c, size);
+                </code>
+              </div>
+            </GlassCard>
           </div>
         </div>
 
-        {/* Slide 9: Triage & Validation Workflow */}
+        {/* Slide 9: Moving the Data */}
         <div ref={(el) => { slideRefs.current[8] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Triage & Validation Workflow</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <GlassCard className="content-box flex flex-col items-center text-center">
-                <div className="h-16 w-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
-                  <Lock className="w-8 h-8 text-red-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Collision Control</h3>
-                <p className="text-gray-400">Implementation of a "Lock" mechanism that prevents multiple triagers from accessing or editing a report simultaneously.</p>
-              </GlassCard>
-              <GlassCard className="content-box flex flex-col items-center text-center">
-                <div className="h-16 w-16 rounded-full bg-yellow-500/20 flex items-center justify-center mb-4">
-                  <RefreshCw className="w-8 h-8 text-yellow-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Status Management</h3>
-                <p className="text-gray-400">A robust state machine governing report transitions to statuses like Duplicate, Spam, Needs More Info, or Out-of-Scope.</p>
-              </GlassCard>
-              <GlassCard className="content-box flex flex-col items-center text-center">
-                <div className="h-16 w-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
-                  <FileText className="w-8 h-8 text-blue-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Technical Summaries</h3>
-                <p className="text-gray-400">The ability for triagers to generate professional summaries for companies based on the validated researcher data.</p>
-              </GlassCard>
-            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Step 2: cudaMemcpy</h1>
+            <GlassCard>
+              <p className="text-lg text-gray-300 mb-6 font-medium">We move the numbers from the RAM to the Graphics Card.</p>
+              <div className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 overflow-x-auto">
+                <code className="text-sm md:text-base font-mono text-gray-300">
+                  <span className="text-gray-500">// From Host (CPU) to Device (GPU)</span><br />
+                  <span className="text-yellow-300">cudaMemcpy</span>(d_a, h_a, size, cudaMemcpyHostToDevice);<br />
+                  <span className="text-yellow-300">cudaMemcpy</span>(d_b, h_b, size, cudaMemcpyHostToDevice);
+                </code>
+              </div>
+            </GlassCard>
           </div>
         </div>
 
-        {/* Slide 10: Administrative Governance & Messaging */}
+        {/* Slide 10: Launching the Kernel */}
         <div ref={(el) => { slideRefs.current[9] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Administrative Governance & Messaging</h1>
-            <GlassCard className="space-y-6">
-              <div className="content-box border-l-4 border-blue-500 pl-4 py-2 flex items-center gap-4">
-                <Megaphone className="w-8 h-8 text-blue-500 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xl font-bold text-white">Global Broadcast System</h3>
-                  <p className="text-gray-300">An administrative command center for sending high-priority messages to all platform users simultaneously.</p>
-                </div>
-              </div>
-              <div className="content-box border-l-4 border-red-500 pl-4 py-2 flex items-center gap-4">
-                <UserX className="w-8 h-8 text-red-500 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xl font-bold text-white">User Moderation</h3>
-                  <p className="text-gray-300">A dedicated interface for monitoring activity logs and suspending accounts that violate ethical guidelines.</p>
-                </div>
-              </div>
-              <div className="content-box border-l-4 border-green-500 pl-4 py-2 flex items-center gap-4">
-                <UserCog className="w-8 h-8 text-green-500 flex-shrink-0" />
-                <div>
-                  <h3 className="text-xl font-bold text-white">Staff Management</h3>
-                  <p className="text-gray-300">Secure onboarding workflows for administrators to recruit and verify specialized technical triagers.</p>
-                </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Step 3: The &lt;&lt;&lt; &gt;&gt;&gt; Syntax</h1>
+            <GlassCard>
+              <p className="text-lg text-gray-300 mb-6 font-medium">The triple angle brackets tell the GPU how many blocks and threads to use.</p>
+              <div className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 overflow-x-auto">
+                <code className="text-sm md:text-base font-mono text-gray-300">
+                  <span className="text-blue-400">int</span> threadsPerBlock = 256;<br />
+                  <span className="text-blue-400">int</span> blocksPerGrid = (n + threadsPerBlock - 1) / threadsPerBlock;<br />
+                  <br />
+                  <span className="text-yellow-300">addArrays</span>&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(d_a, d_b, d_c, n);
+                </code>
               </div>
             </GlassCard>
           </div>
         </div>
 
-        {/* Slide 11: Company Program & Scoping */}
+        {/* Slide 11: Full Code Implementation */}
         <div ref={(el) => { slideRefs.current[10] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
-          <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Company Program & Scoping</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <GlassCard className="content-box text-center flex flex-col items-center">
-                <Search className="w-10 h-10 text-white mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Program Directory</h3>
-                <p className="text-gray-300">A searchable portal for researchers to discover public vulnerability disclosure programs.</p>
-              </GlassCard>
-              <GlassCard className="content-box text-center flex flex-col items-center">
-                <Target className="w-10 h-10 text-white mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Scope Definition</h3>
-                <p className="text-gray-300">Interface for companies to explicitly list "Out-of-Scope" assets to prevent unauthorized testing.</p>
-              </GlassCard>
-              <GlassCard className="content-box text-center flex flex-col items-center">
-                <Activity className="w-10 h-10 text-white mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Engagement Dashboard</h3>
-                <p className="text-gray-300">Companies can monitor the overall health of their programs and actively participate in triage chats.</p>
-              </GlassCard>
-            </div>
-          </div>
-        </div>
-
-        {/* Slide 12: Technical Architecture (Backend) */}
-        <div ref={(el) => { slideRefs.current[11] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
-          <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Technical Architecture (Backend)</h1>
-            <GlassCard className="space-y-6">
-              <div className="content-box flex items-start space-x-4">
-                <div className="w-12 h-12 bg-green-500/20 rounded flex items-center justify-center flex-shrink-0">
-                  <Server className="w-6 h-6 text-green-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Platform Backbone</h3>
-                  <p className="text-gray-300">High-performance API architecture built on Node.js and the Express.js framework.</p>
-                </div>
-              </div>
-              <div className="content-box flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-500/20 rounded flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-6 h-6 text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Security Layer</h3>
-                  <p className="text-gray-300">Advanced bcrypt-based hashing for credentials and secure session token encryption.</p>
-                </div>
-              </div>
-              <div className="content-box flex items-start space-x-4">
-                <div className="w-12 h-12 bg-purple-500/20 rounded flex items-center justify-center flex-shrink-0">
-                  <Database className="w-6 h-6 text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Data Layer</h3>
-                  <p className="text-gray-300">MongoDB utilized for flexible, metadata-rich storage of vulnerability reports and user identities.</p>
-                </div>
+          <div className="max-w-6xl w-full">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 text-center">Complete Source Code (main.cu)</h1>
+            <GlassCard className="overflow-y-auto max-h-[70vh]">
+              <div className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 overflow-x-auto">
+                <code className="text-sm font-mono text-gray-300 leading-relaxed">
+                  <span className="text-purple-400">#include</span> &lt;stdio.h&gt;<br /><br />
+                  <span className="text-green-400">__global__</span> <span className="text-blue-400">void</span> <span className="text-yellow-300">add</span>(<span className="text-blue-400">int</span> *a, <span className="text-blue-400">int</span> *b, <span className="text-blue-400">int</span> *c, <span className="text-blue-400">int</span> n) {"{"}<br />
+                  &nbsp;&nbsp;<span className="text-blue-400">int</span> i = blockIdx.x * blockDim.x + threadIdx.x;<br />
+                  &nbsp;&nbsp;<span className="text-purple-400">if</span> (i &lt; n) c[i] = a[i] + b[i];<br />
+                  {"}"}<br /><br />
+                  <span className="text-blue-400">int</span> <span className="text-yellow-300">main</span>() {"{"}<br />
+                  &nbsp;&nbsp;<span className="text-blue-400">int</span> n = 10;<br />
+                  &nbsp;&nbsp;<span className="text-blue-400">int</span> size = n * <span className="text-purple-400">sizeof</span>(<span className="text-blue-400">int</span>);<br />
+                  &nbsp;&nbsp;<span className="text-blue-400">int</span> h_a[10] = {"{1,2,3,4,5,6,7,8,9,10}"}, h_b[10] = {"{1,1,1,1,1,1,1,1,1,1}"}, h_c[10];<br />
+                  &nbsp;&nbsp;<span className="text-blue-400">int</span> *d_a, *d_b, *d_c;<br /><br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">cudaMalloc</span>(&d_a, size); <span className="text-yellow-300">cudaMalloc</span>(&d_b, size); <span className="text-yellow-300">cudaMalloc</span>(&d_c, size);<br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">cudaMemcpy</span>(d_a, h_a, size, cudaMemcpyHostToDevice);<br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">cudaMemcpy</span>(d_b, h_b, size, cudaMemcpyHostToDevice);<br /><br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">add</span>&lt;&lt;&lt;1, n&gt;&gt;&gt;(d_a, d_b, d_c, n);<br /><br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">cudaMemcpy</span>(h_c, d_c, size, cudaMemcpyDeviceToHost);<br />
+                  &nbsp;&nbsp;<span className="text-purple-400">for</span>(<span className="text-blue-400">int</span> i=0; i&lt;n; i++) <span className="text-yellow-300">printf</span>(<span className="text-orange-400">"%d + %d = %d\n"</span>, h_a[i], h_b[i], h_c[i]);<br /><br />
+                  &nbsp;&nbsp;<span className="text-yellow-300">cudaFree</span>(d_a); <span className="text-yellow-300">cudaFree</span>(d_b); <span className="text-yellow-300">cudaFree</span>(d_c);<br />
+                  &nbsp;&nbsp;<span className="text-purple-400">return</span> 0;<br />
+                  {"}"}
+                </code>
               </div>
             </GlassCard>
           </div>
         </div>
 
-        {/* Slide 13: Technical Architecture (Frontend) */}
-        <div ref={(el) => { slideRefs.current[12] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
-          <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Technical Architecture (Frontend)</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <GlassCard className="content-box text-center flex flex-col items-center">
-                <Layers className="w-12 h-12 text-cyan-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Interface Layer</h3>
-                <p className="text-gray-300">React.js framework used to build highly responsive and real-time dashboards for all system actors.</p>
-              </GlassCard>
-              <GlassCard className="content-box text-center flex flex-col items-center">
-                <Zap className="w-12 h-12 text-yellow-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Real-time Updates</h3>
-                <p className="text-gray-300">Integration of WebSocket or similar technologies to handle instant chat notifications and status changes.</p>
-              </GlassCard>
-              <GlassCard className="content-box text-center flex flex-col items-center">
-                <Cpu className="w-12 h-12 text-pink-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">CVSS Logic</h3>
-                <p className="text-gray-300">Client-side implementation of CVSS scoring libraries for accurate, real-time severity calculations.</p>
-              </GlassCard>
-            </div>
-          </div>
-        </div>
-
-        {/* Slide 14: Use Case Demo: The "Verified Reporting" Lifecycle */}
-        <div ref={(el) => { slideRefs.current[13] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
-          <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The "Verified Reporting" Lifecycle</h1>
-            <div className="bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
-              <div className="space-y-8 relative">
-                {/* Step 1 */}
-                <div className="content-box flex md:items-center flex-col md:flex-row gap-6 relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-blue-500 font-bold text-xl flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)]">
-                    <UserCheck className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">Researcher Registration</h3>
-                    <p className="text-gray-300">Researcher registers, completes biometric KYC (NIC + Liveliness), and becomes a "Verified" contributor.</p>
-                  </div>
-                </div>
-                {/* Step 2 */}
-                <div className="content-box flex md:items-center flex-col md:flex-row gap-6 relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-purple-500 font-bold text-xl flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.5)]">
-                    <Upload className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">Submission</h3>
-                    <p className="text-gray-300">Researcher uses the built-in CVSS tool and submits a bug report with video POC.</p>
-                  </div>
-                </div>
-                {/* Step 3 */}
-                <div className="content-box flex md:items-center flex-col md:flex-row gap-6 relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500 font-bold text-xl flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.5)]">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">Triage & Coordination</h3>
-                    <p className="text-gray-300">Triager locks the report, starts a chat with the researcher, and coordinates the impact assessment with the company.</p>
-                  </div>
-                </div>
-
-                {/* Line connector */}
-                <div className="absolute left-[23.5px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 hidden md:block opacity-50"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Slide 15: Conclusion & Milestone Roadmap */}
-        <div ref={(el) => { slideRefs.current[14] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
+        {/* Slide 12: Thank You! */}
+        <div ref={(el) => { slideRefs.current[11] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-4xl w-full text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">Conclusion & Roadmap</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500 mb-8">
+              Conclusion & Questions
+            </h1>
             <GlassCard className="space-y-8 py-12">
               <div className="content-box">
-                <h3 className="text-2xl font-medium text-white mb-2">Summary</h3>
-                <p className="text-gray-400">Successfully implemented the core security, verification, and communication infrastructure of BugChase.</p>
-              </div>
-              <div className="w-32 h-px bg-white/20 mx-auto" />
-              <div className="content-box">
-                <h3 className="text-2xl font-medium text-white mb-2">Stability</h3>
-                <p className="text-gray-400">The platform currently handles end-to-end report processing with high-level identity trust.</p>
-              </div>
-              <div className="w-32 h-px bg-white/20 mx-auto" />
-              <div className="content-box">
-                <h3 className="text-2xl font-medium text-blue-300">Next Milestone</h3>
-                <p className="text-gray-400">Transitioning to Capstone 2, focusing on AI-driven duplicate detection, automated asset scanning, and local Escrow payment gateways.</p>
+                <h3 className="text-2xl font-bold text-white mb-4">Summary</h3>
+                <p className="text-gray-300 mb-6">CUDA unlocks the massive power of GPUs for everyday tasks.</p>
+                <div className="h-px w-32 bg-white/20 mx-auto my-6" />
+                <h3 className="text-2xl font-bold text-white mb-4">Q&A</h3>
+                <p className="text-gray-300 mb-6">We are now open for any questions.</p>
+                <div className="text-gray-400 italic space-y-1">
+                  <p>Contact:</p>
+                  <p>Danish Ali, Abdullah Azam</p>
+                  <p>Ameer Hamza Bajwa, Muhammad Qasim</p>
+                </div>
+                <p className="text-green-400 font-bold mt-8 text-xl">Thank You for your time!</p>
               </div>
             </GlassCard>
           </div>

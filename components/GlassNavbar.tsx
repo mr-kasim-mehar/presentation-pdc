@@ -118,7 +118,7 @@ const GlassNavbar = ({ items, activeIndex, onItemClick }: GlassNavbarProps) => {
               <div className="absolute inset-0 bg-white/30 opacity-0 transition-opacity group-hover:opacity-100 mix-blend-overlay" />
             </div>
             <span className={`font-medium tracking-tight text-white transition-all duration-300 hidden sm:block ${isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100 w-auto'}`}>
-              BugChase
+              PDC
             </span>
           </div>
 
