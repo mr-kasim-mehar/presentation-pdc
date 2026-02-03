@@ -269,10 +269,10 @@ export default function Home() {
         {/* Slide 1: Title Slide */}
         <div ref={(el) => { slideRefs.current[0] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full text-center space-y-8">
-            <GlassCard>
-              <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 mb-4 px-4 whitespace-nowrap">
+            <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600 mb-8 px-4 whitespace-nowrap">
                 Parallel & Distributed Computing
               </h1>
+            <GlassCard>
               <p className="text-xl md:text-2xl text-green-200 font-medium mb-6">
                 What is CUDA and How to Write Code?
               </p>

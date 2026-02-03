@@ -114,7 +114,7 @@ const GlassNavbar = ({ items, activeIndex, onItemClick }: GlassNavbarProps) => {
           {/* Logo */}
           <div className="flex items-center gap-3 pl-3 pr-2">
             <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-lg group-hover:scale-105 transition-transform duration-500">
-              <span className="font-mono text-xs font-bold text-white">B</span>
+              <span className="font-mono text-[10px] font-bold text-white">PDC</span>
               <div className="absolute inset-0 bg-white/30 opacity-0 transition-opacity group-hover:opacity-100 mix-blend-overlay" />
             </div>
             <span className={`font-medium tracking-tight text-white transition-all duration-300 hidden sm:block ${isScrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100 w-auto'}`}>
