@@ -290,26 +290,19 @@ export default function Home() {
         {/* Slide 2: What is CUDA? */}
         <div ref={(el) => { slideRefs.current[1] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The Architecture of CUDA</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The Basics</h1>
             <GlassCard className="space-y-6">
               <div className="content-box">
-                <h3 className="text-xl font-bold text-green-400 mb-2">Beyond the Definition</h3>
-                <p className="text-gray-300">It is a parallel computing platform and programming model.</p>
+                <h3 className="text-2xl font-bold text-green-400 mb-2">Definition</h3>
+                <p className="text-gray-300 text-lg">CUDA (Compute Unified Device Architecture) is a platform created by NVIDIA.</p>
               </div>
               <div className="content-box">
-                <h3 className="text-xl font-bold text-white mb-2">The Programming Interface</h3>
-                <p className="text-gray-300">It provides a set of extensions to the C language (and C++, Fortran, Python) to allow "General Purpose GPU" computing (GPGPU).</p>
+                <h3 className="text-xl font-semibold text-white mb-2">Purpose</h3>
+                <p className="text-gray-300">It allows us to use the GPU (Graphics Processing Unit) for general-purpose mathematical calculations, not just for gaming.</p>
               </div>
               <div className="content-box">
-                <h3 className="text-xl font-bold text-white mb-2">The Ecosystem</h3>
-                <ul className="list-disc list-inside text-gray-300 space-y-1">
-                  <li><strong className="text-blue-400">NVCC Compiler:</strong> The heart of CUDA that separates CPU code from GPU code.</li>
-                  <li><strong className="text-blue-400">Libraries:</strong> Includes pre-built math libraries like cuBLAS (Linear Algebra) and cuFFT (Fast Fourier Transform).</li>
-                </ul>
-              </div>
-              <div className="content-box">
-                <h3 className="text-xl font-bold text-white mb-2">Hardware Requirement</h3>
-                <p className="text-gray-300">Requires an NVIDIA GPU with "Compute Capability."</p>
+                <h3 className="text-xl font-semibold text-white mb-2">Language</h3>
+                <p className="text-gray-300">It uses an extension of the C language.</p>
               </div>
             </GlassCard>
           </div>
@@ -318,28 +311,26 @@ export default function Home() {
         {/* Slide 3: CPU vs. GPU */}
         <div ref={(el) => { slideRefs.current[2] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Throughput vs. Latency</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Why Parallelism Matters</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <GlassCard className="content-box h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <Cpu className="w-8 h-8 text-blue-400" />
-                  <h3 className="text-2xl font-bold text-white">CPU (Latency Oriented)</h3>
+                  <h3 className="text-2xl font-bold text-white">CPU (The Manager)</h3>
                 </div>
-                <p className="text-gray-300 text-lg mb-4">Designed to minimize the time it takes to execute a single instruction.</p>
-                <div className="space-y-2">
-                  <p className="text-gray-400">It uses massive L3 Caches and complex Branch Prediction.</p>
-                  <p className="text-gray-300 mt-2"><strong className="text-white">Parallelism:</strong> SISD/MIMD (Single/Multiple Instruction, Single/Multiple Data)</p>
+                <p className="text-gray-300 text-lg">Has a few powerful cores optimized for serial (one-by-one) tasks.</p>
+                <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
+                  <p className="text-sm text-gray-400 italic">"A specialized professor"</p>
                 </div>
               </GlassCard>
               <GlassCard className="content-box h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <Layers className="w-8 h-8 text-green-400" />
-                  <h3 className="text-2xl font-bold text-white">GPU (Throughput Oriented)</h3>
+                  <h3 className="text-2xl font-bold text-white">GPU (The Workforce)</h3>
                 </div>
-                <p className="text-gray-300 text-lg mb-4">Designed to maximize the amount of data processed at once.</p>
-                <div className="space-y-2">
-                  <p className="text-gray-400">It sacrifices large caches to make room for thousands of ALUs (Arithmetic Logic Units).</p>
-                  <p className="text-gray-300 mt-2"><strong className="text-white">Parallelism:</strong> SIMT (Single Instruction, Multiple Threads)</p>
+                <p className="text-gray-300 text-lg">Has thousands of smaller cores optimized for parallel (simultaneous) tasks.</p>
+                <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
+                  <p className="text-sm text-gray-400 italic">"A fleet of 1,000 bicycles"</p>
                 </div>
               </GlassCard>
             </div>
@@ -349,36 +340,32 @@ export default function Home() {
         {/* Slide 4: Understanding the Hierarchy */}
         <div ref={(el) => { slideRefs.current[3] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The Execution Hierarchy</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Threads, Blocks, and Grids</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <GlassCard className="content-box text-center">
-                <div className="w-16 h-16 mx-auto bg-orange-500/20 rounded-full flex items-center justify-center mb-4">
-                  <LayoutDashboard className="w-8 h-8 text-orange-400" />
+                <div className="w-16 h-16 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
+                  <Zap className="w-8 h-8 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">The Grid</h3>
-                <p className="text-gray-300 text-sm">The top-level structure. A grid is launched whenever you call a kernel.</p>
+                <h3 className="text-xl font-bold text-white mb-2">Thread</h3>
+                <p className="text-gray-300">The smallest unit that performs the addition.</p>
               </GlassCard>
               <GlassCard className="content-box text-center">
                 <div className="w-16 h-16 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center mb-4">
                   <Layers className="w-8 h-8 text-purple-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">The Block</h3>
-                <p className="text-gray-300 text-sm">A group of threads that can share data through Shared Memory and synchronize execution.</p>
+                <h3 className="text-xl font-bold text-white mb-2">Block</h3>
+                <p className="text-gray-300">A group of threads (e.g., 256 threads in one block).</p>
               </GlassCard>
               <GlassCard className="content-box text-center">
-                <div className="w-16 h-16 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
-                  <Zap className="w-8 h-8 text-blue-400" />
+                <div className="w-16 h-16 mx-auto bg-orange-500/20 rounded-full flex items-center justify-center mb-4">
+                  <LayoutDashboard className="w-8 h-8 text-orange-400" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">The Thread</h3>
-                <p className="text-gray-300 text-sm">The smallest unit. Has built-in variables: <code className="bg-white/10 px-1 rounded text-xs">threadIdx</code>, <code className="bg-white/10 px-1 rounded text-xs">blockIdx</code>, <code className="bg-white/10 px-1 rounded text-xs">blockDim</code>.</p>
+                <h3 className="text-xl font-bold text-white mb-2">Grid</h3>
+                <p className="text-gray-300">A collection of blocks that handle the entire array.</p>
               </GlassCard>
             </div>
             <GlassCard className="mt-6 text-center">
-              <h3 className="text-xl font-bold text-white mb-2">The Math behind Indexing</h3>
-              <p className="text-gray-300 mb-2">To find a global index in a 1D array:</p>
-              <code className="bg-black/30 px-4 py-2 rounded-lg text-green-400 text-lg block w-fit mx-auto">
-                GlobalIndex = (blockIdx.x × blockDim.x) + threadIdx.x
-              </code>
+              <p className="text-gray-300 italic">Logic: Every thread has a unique ID, so it knows which index of the array to add.</p>
             </GlassCard>
           </div>
         </div>
@@ -386,31 +373,21 @@ export default function Home() {
         {/* Slide 5: Memory Management */}
         <div ref={(el) => { slideRefs.current[4] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Memory Spaces and the PCIe Bus</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Host vs. Device</h1>
             <GlassCard className="space-y-6">
-              <div className="content-box bg-red-500/10 p-4 rounded-xl text-center border border-red-500/30">
-                <h3 className="text-xl font-bold text-red-400 mb-1">Data Bottleneck</h3>
-                <p className="text-gray-300 text-sm">Data travels from the CPU to the GPU via the PCIe Bus. This is often the slowest part of the program.</p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="content-box bg-white/5 p-4 rounded-xl text-center">
-                  <h3 className="text-lg font-bold text-blue-400 mb-2">Global Memory</h3>
-                  <p className="text-gray-300 text-sm">Accessible by all threads but slow (High latency).</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="content-box bg-white/5 p-6 rounded-xl text-center">
+                  <h3 className="text-2xl font-bold text-blue-400 mb-2">Host</h3>
+                  <p className="text-gray-300">Refers to the CPU and your system RAM.</p>
                 </div>
-                <div className="content-box bg-white/5 p-4 rounded-xl text-center">
-                  <h3 className="text-lg font-bold text-purple-400 mb-2">Shared Memory</h3>
-                  <p className="text-gray-300 text-sm">Very fast, but only accessible by threads within the same block.</p>
-                </div>
-                <div className="content-box bg-white/5 p-4 rounded-xl text-center">
-                  <h3 className="text-lg font-bold text-green-400 mb-2">Registers</h3>
-                  <p className="text-gray-300 text-sm">The fastest memory, private to each individual thread.</p>
+                <div className="content-box bg-white/5 p-6 rounded-xl text-center">
+                  <h3 className="text-2xl font-bold text-green-400 mb-2">Device</h3>
+                  <p className="text-gray-300">Refers to the GPU and its specialized VRAM.</p>
                 </div>
               </div>
-
-              <div className="content-box bg-white/5 p-4 rounded-xl text-center border border-yellow-500/30">
-                <h3 className="text-lg font-bold text-yellow-400 mb-1">Standard Rule</h3>
-                <p className="text-gray-300 text-sm">Keep data on the Device as long as possible to avoid constant transfers back to the Host.</p>
+              <div className="content-box bg-white/5 p-6 rounded-xl text-center border border-yellow-500/30">
+                <h3 className="text-xl font-bold text-yellow-400 mb-2">Key Concept</h3>
+                <p className="text-gray-300">The GPU cannot see the CPU's memory. We must copy data from the Host to the Device to process it.</p>
               </div>
             </GlassCard>
           </div>
@@ -419,24 +396,21 @@ export default function Home() {
         {/* Slide 6: The CUDA Workflow */}
         <div ref={(el) => { slideRefs.current[5] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Anatomy of a CUDA Execution</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The 5-Step Process</h1>
             <GlassCard className="space-y-4">
               <div className="space-y-4">
                 {[
-                  { title: "Host Initialization", desc: "Define array sizes and fill arrays h_a and h_b with values in the CPU RAM." },
-                  { title: "Device Allocation", desc: "Use cudaMalloc() to reserve space in the GPU's VRAM." },
-                  { title: "H2D Transfer", desc: "Use cudaMemcpy(..., cudaMemcpyHostToDevice) to push data across the PCIe bus." },
-                  { title: "The Kernel Launch", desc: "The CPU tells the GPU to wake up N threads. The CPU can either wait (Synchronous) or keep working (Asynchronous)." },
-                  { title: "D2H Transfer & Cleanup", desc: "Use cudaMemcpy(..., cudaMemcpyDeviceToHost) to bring the answer home and cudaFree() to clear the GPU memory." }
-                ].map((item, idx) => (
-                  <div key={idx} className="content-box flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
-                    <div className="w-8 h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-lg flex-shrink-0 mt-1">
+                  "Allocate memory on the GPU (cudaMalloc).",
+                  "Copy input arrays from CPU to GPU (cudaMemcpy).",
+                  "Launch the Kernel (The GPU function).",
+                  "Copy results from GPU back to CPU.",
+                  "Free the memory to prevent leaks."
+                ].map((step, idx) => (
+                  <div key={idx} className="content-box flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                    <div className="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
                       {idx + 1}
                     </div>
-                    <div>
-                      <h4 className="font-bold text-white mb-1">{item.title}</h4>
-                      <p className="text-gray-300 text-sm">{item.desc}</p>
-                    </div>
+                    <p className="text-lg text-gray-200">{step}</p>
                   </div>
                 ))}
               </div>
