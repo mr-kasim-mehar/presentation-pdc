@@ -294,15 +294,22 @@ export default function Home() {
             <GlassCard className="space-y-6">
               <div className="content-box">
                 <h3 className="text-2xl font-bold text-green-400 mb-2">Definition</h3>
-                <p className="text-gray-300 text-lg">CUDA (Compute Unified Device Architecture) is a platform created by NVIDIA.</p>
+                <p className="text-gray-300 text-lg">CUDA (Compute Unified Device Architecture) is a platform created by NVIDIA that allows software to use the GPU for general purpose processing.</p>
               </div>
-              <div className="content-box">
-                <h3 className="text-xl font-semibold text-white mb-2">Purpose</h3>
-                <p className="text-gray-300">It allows us to use the GPU (Graphics Processing Unit) for general-purpose mathematical calculations, not just for gaming.</p>
-              </div>
-              <div className="content-box">
-                <h3 className="text-xl font-semibold text-white mb-2">Language</h3>
-                <p className="text-gray-300">It uses an extension of the C language.</p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div className="content-box bg-white/5 p-4 rounded-lg">
+                  <h4 className="text-xl font-semibold text-blue-300 mb-2">The Concept</h4>
+                  <p className="text-gray-300">Unlocks the power of the graphics card for math, science, and AI, not just gaming.</p>
+                </div>
+                <div className="content-box bg-white/5 p-4 rounded-lg">
+                  <h4 className="text-xl font-semibold text-purple-300 mb-2">The Analogy</h4>
+                  <p className="text-gray-300">
+                    Think of your <strong>CPU</strong> as a brilliant <span className="text-blue-200">Math Professor</span> (smart, but works alone).
+                    <br /><br />
+                    Think of <strong>CUDA</strong> as hiring <span className="text-purple-200">1,000 Students</span> (less experienced, but they work together to finish the job much faster).
+                  </p>
+                </div>
               </div>
             </GlassCard>
           </div>
@@ -313,24 +320,26 @@ export default function Home() {
           <div className="max-w-5xl w-full">
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Why Parallelism Matters</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <GlassCard className="content-box h-full">
+              <GlassCard className="content-box h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <Cpu className="w-8 h-8 text-blue-400" />
                   <h3 className="text-2xl font-bold text-white">CPU (The Manager)</h3>
                 </div>
-                <p className="text-gray-300 text-lg">Has a few powerful cores optimized for serial (one-by-one) tasks.</p>
-                <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                  <p className="text-sm text-gray-400 italic">"A specialized professor"</p>
+                <p className="text-gray-300 text-lg mb-4">Few powerful cores. Optimized for serial processing (doing one thing at a time very quickly).</p>
+                <div className="mt-auto p-4 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                  <h4 className="text-blue-300 font-bold mb-2">Like a Race Car</h4>
+                  <p className="text-sm text-gray-300">Extremely fast for one person, but can't move 50 people at once.</p>
                 </div>
               </GlassCard>
-              <GlassCard className="content-box h-full">
+              <GlassCard className="content-box h-full flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <Layers className="w-8 h-8 text-green-400" />
                   <h3 className="text-2xl font-bold text-white">GPU (The Workforce)</h3>
                 </div>
-                <p className="text-gray-300 text-lg">Has thousands of smaller cores optimized for parallel (simultaneous) tasks.</p>
-                <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                  <p className="text-sm text-gray-400 italic">"A fleet of 1,000 bicycles"</p>
+                <p className="text-gray-300 text-lg mb-4">Thousands of smaller cores. Optimized for parallel processing (doing many things at once).</p>
+                <div className="mt-auto p-4 bg-green-500/10 rounded-lg border border-green-500/20">
+                  <h4 className="text-green-300 font-bold mb-2">Like a City Bus</h4>
+                  <p className="text-sm text-gray-300">Slower top speed than a race car, but transports 50 people simultaneously.</p>
                 </div>
               </GlassCard>
             </div>
@@ -341,32 +350,34 @@ export default function Home() {
         <div ref={(el) => { slideRefs.current[3] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">Threads, Blocks, and Grids</h1>
+            <p className="text-center text-gray-300 mb-8 max-w-2xl mx-auto">Understanding how CUDA organizes work using a <span className="text-orange-400 font-bold">Construction Site</span> analogy.</p>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <GlassCard className="content-box text-center">
                 <div className="w-16 h-16 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center mb-4">
                   <Zap className="w-8 h-8 text-blue-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Thread</h3>
-                <p className="text-gray-300">The smallest unit that performs the addition.</p>
+                <p className="text-blue-200 text-sm font-semibold mb-2">"The Worker"</p>
+                <p className="text-gray-300">One worker laying a single brick. The smallest unit of execution.</p>
               </GlassCard>
               <GlassCard className="content-box text-center">
                 <div className="w-16 h-16 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center mb-4">
                   <Layers className="w-8 h-8 text-purple-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Block</h3>
-                <p className="text-gray-300">A group of threads (e.g., 256 threads in one block).</p>
+                <p className="text-purple-200 text-sm font-semibold mb-2">"The Team"</p>
+                <p className="text-gray-300">A group of workers building one wall together. Threads in a block can share memory.</p>
               </GlassCard>
               <GlassCard className="content-box text-center">
                 <div className="w-16 h-16 mx-auto bg-orange-500/20 rounded-full flex items-center justify-center mb-4">
                   <LayoutDashboard className="w-8 h-8 text-orange-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Grid</h3>
-                <p className="text-gray-300">A collection of blocks that handle the entire array.</p>
+                <p className="text-orange-200 text-sm font-semibold mb-2">"The Site"</p>
+                <p className="text-gray-300">The entire construction site. A collection of all blocks working on the full problem.</p>
               </GlassCard>
             </div>
-            <GlassCard className="mt-6 text-center">
-              <p className="text-gray-300 italic">Logic: Every thread has a unique ID, so it knows which index of the array to add.</p>
-            </GlassCard>
           </div>
         </div>
 
@@ -377,17 +388,24 @@ export default function Home() {
             <GlassCard className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="content-box bg-white/5 p-6 rounded-xl text-center">
-                  <h3 className="text-2xl font-bold text-blue-400 mb-2">Host</h3>
-                  <p className="text-gray-300">Refers to the CPU and your system RAM.</p>
+                  <h3 className="text-2xl font-bold text-blue-400 mb-2">Host (CPU)</h3>
+                  <p className="text-gray-300">System RAM. Where your main program starts.</p>
                 </div>
                 <div className="content-box bg-white/5 p-6 rounded-xl text-center">
-                  <h3 className="text-2xl font-bold text-green-400 mb-2">Device</h3>
-                  <p className="text-gray-300">Refers to the GPU and its specialized VRAM.</p>
+                  <h3 className="text-2xl font-bold text-green-400 mb-2">Device (GPU)</h3>
+                  <p className="text-gray-300">Video RAM (VRAM). Where the heavy lifting happens.</p>
                 </div>
               </div>
-              <div className="content-box bg-white/5 p-6 rounded-xl text-center border border-yellow-500/30">
-                <h3 className="text-xl font-bold text-yellow-400 mb-2">Key Concept</h3>
-                <p className="text-gray-300">The GPU cannot see the CPU's memory. We must copy data from the Host to the Device to process it.</p>
+              <div className="content-box bg-white/5 p-6 rounded-xl border border-yellow-500/30 flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-yellow-400 mb-2">The Bottleneck: Data Travel</h3>
+                  <p className="text-gray-300">The GPU cannot access CPU memory directly. Moving data is the slowest part.</p>
+                </div>
+                <div className="flex-1 bg-black/20 p-4 rounded-lg">
+                  <p className="text-gray-300 italic text-sm">
+                    "Processing on the GPU is instant, but getting data there is like <strong>shipping a package</strong>. You want to ship a full truckload (large data), not just one envelope at a time."
+                  </p>
+                </div>
               </div>
             </GlassCard>
           </div>
@@ -396,21 +414,28 @@ export default function Home() {
         {/* Slide 6: The CUDA Workflow */}
         <div ref={(el) => { slideRefs.current[5] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
           <div className="max-w-5xl w-full">
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The 5-Step Process</h1>
-            <GlassCard className="space-y-4">
-              <div className="space-y-4">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The CUDA Workflow</h1>
+            <GlassCard className="space-y-6">
+              <p className="text-center text-gray-300 text-lg mb-4">Think of it like a <span className="text-green-400 font-bold">Chef's Workflow</span>.</p>
+              <div className="space-y-3">
                 {[
-                  "Allocate memory on the GPU (cudaMalloc).",
-                  "Copy input arrays from CPU to GPU (cudaMemcpy).",
-                  "Launch the Kernel (The GPU function).",
-                  "Copy results from GPU back to CPU.",
-                  "Free the memory to prevent leaks."
+                  { title: "Allocate", desc: "Get bowls ready (Reserve GPU Memory)", icon: "🥣" },
+                  { title: "Copy", desc: "Pour ingredients into bowls (Send Data CPU → GPU)", icon: "🥛" },
+                  { title: "Launch", desc: "Turn on the mixer (Execute Kernel on GPU)", icon: "⚙️" },
+                  { title: "Copy Back", desc: "Pour cake batter back into pan (Send Results GPU → CPU)", icon: "🎂" },
+                  { title: "Free", desc: "Wash the bowls (Free GPU Memory)", icon: "🧼" }
                 ].map((step, idx) => (
-                  <div key={idx} className="content-box flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
-                    <div className="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  <div key={idx} className="content-box flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-700 text-white flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">
                       {idx + 1}
                     </div>
-                    <p className="text-lg text-gray-200">{step}</p>
+                    <div className="flex-1">
+                      <h4 className="text-white font-bold text-lg">{step.title}</h4>
+                      <p className="text-gray-300">{step.desc}</p>
+                    </div>
+                    <div className="text-2xl grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
+                      {step.icon}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -420,23 +445,46 @@ export default function Home() {
 
         {/* Slide 7: Defining the Kernel */}
         <div ref={(el) => { slideRefs.current[6] = el; }} className="flex items-center justify-center min-h-screen px-4 snap-start snap-always pt-20">
-          <div className="max-w-5xl w-full">
+          <div className="max-w-6xl w-full">
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 text-center">The GPU Function (__global__)</h1>
-            <GlassCard>
-              <p className="text-lg text-gray-300 mb-6 font-medium">We use the keyword <code className="text-green-400">__global__</code> to tell the compiler this function runs on the GPU.</p>
-              <div className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 overflow-x-auto">
-                <code className="text-sm md:text-base font-mono text-gray-300">
-                  <span className="text-green-400">__global__</span> <span className="text-blue-400">void</span> <span className="text-yellow-300">addArrays</span>(<span className="text-blue-400">int</span> *a, <span className="text-blue-400">int</span> *b, <span className="text-blue-400">int</span> *c, <span className="text-blue-400">int</span> n) {"{"}<br />
-                  &nbsp;&nbsp;<span className="text-gray-500">// Find the unique index for this thread</span><br />
-                  &nbsp;&nbsp;<span className="text-blue-400">int</span> i = blockIdx.x * blockDim.x + threadIdx.x;<br />
-                  <br />
-                  &nbsp;&nbsp;<span className="text-purple-400">if</span> (i &lt; n) {"{"}<br />
-                  &nbsp;&nbsp;&nbsp;&nbsp;c[i] = a[i] + b[i]; <span className="text-gray-500">// Addition happens here!</span><br />
-                  &nbsp;&nbsp;{"}"}<br />
-                  {"}"}
-                </code>
-              </div>
-            </GlassCard>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <GlassCard>
+                <div className="bg-[#1e1e1e] p-6 rounded-xl border border-white/10 overflow-x-auto h-full flex flex-col justify-center">
+                  <code className="text-sm md:text-base font-mono text-gray-300">
+                    <span className="text-green-400">__global__</span> <span className="text-blue-400">void</span> <span className="text-yellow-300">addArrays</span>(...) {"{"}<br /><br />
+                    &nbsp;&nbsp;<span className="text-gray-500">// Calculate unique ID</span><br />
+                    &nbsp;&nbsp;<span className="text-blue-400">int</span> i = blockIdx.x * blockDim.x + threadIdx.x;<br />
+                    <br />
+                    &nbsp;&nbsp;<span className="text-purple-400">if</span> (i &lt; n) {"{"}<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;c[i] = a[i] + b[i];<br />
+                    &nbsp;&nbsp;{"}"}<br />
+                    {"}"}
+                  </code>
+                </div>
+              </GlassCard>
+
+              <GlassCard className="space-y-4">
+                <h3 className="text-xl font-bold text-white border-b border-white/10 pb-2">Translation</h3>
+                <div className="space-y-4">
+                  <div className="bg-white/5 p-3 rounded-lg">
+                    <code className="text-green-400 font-bold block mb-1">__global__</code>
+                    <p className="text-gray-300 text-sm">"Hey Compiler, this function is special. It runs on the GPU and is called from the CPU."</p>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-lg">
+                    <code className="text-blue-400 font-bold block mb-1">blockIdx.x * blockDim.x</code>
+                    <p className="text-gray-300 text-sm">"Which team (Block) am I in, and how big is that team?"</p>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-lg">
+                    <code className="text-yellow-300 font-bold block mb-1">+ threadIdx.x</code>
+                    <p className="text-gray-300 text-sm">"Which worker number am I inside my team?"</p>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-lg border-l-4 border-green-500">
+                    <p className="text-white text-sm font-bold">i = Global ID</p>
+                    <p className="text-gray-300 text-sm">Calculating 'i' gives every thread a unique ID badge so it knows exactly which number in the array to process.</p>
+                  </div>
+                </div>
+              </GlassCard>
+            </div>
           </div>
         </div>
 
